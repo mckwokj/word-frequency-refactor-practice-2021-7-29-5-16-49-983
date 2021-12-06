@@ -20,14 +20,14 @@ public class WordFrequencyGame {
                 //split the input string with 1 to n pieces of spaces
                 String[] words = inputStr.split(SPACE_PATTERN);
 
-                List<WordInfo> inputList = new ArrayList<>();
+                List<WordInfo> wordInfoList = new ArrayList<>();
                 for (String word : words) {
                     WordInfo wordInfo = new WordInfo(word, 1);
-                    inputList.add(wordInfo);
+                    wordInfoList.add(wordInfo);
                 }
 
                 //get the map for the next step of sizing the same word
-                Map<String, List<WordInfo>> map = getListMap(inputList);
+                Map<String, List<WordInfo>> map = getListMap(wordInfoList);
 
                 List<WordInfo> wordInfos = new ArrayList<>();
 
@@ -35,13 +35,12 @@ public class WordFrequencyGame {
                     WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
                     wordInfos.add(wordInfo);
                 }
-                inputList = wordInfos;
+                wordInfoList = wordInfos;
 
-                inputList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+                wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
 
                 StringJoiner joiner = new StringJoiner("\n");
-                
-                for (WordInfo wordInfo : inputList) {
+                for (WordInfo wordInfo : wordInfoList) {
                     String s = wordInfo.getWord() + " " + wordInfo.getWordCount();
                     joiner.add(s);
                 }
