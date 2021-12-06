@@ -7,20 +7,20 @@ public class WordFrequencyGame {
     public static final String CALCULATE_ERROR_EXCEPTION_MSG = "Calculate Error";
 
     public String getWordFrequencyResult(String sentence) {
-            try {
-                List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
-                sortWordInfoList(wordInfoList);
-                StringJoiner wordsJoiner = new StringJoiner("\n");
+        try {
+            List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
+            sortWordInfoList(wordInfoList);
 
-                for (WordInfo wordInfo : wordInfoList) {
-                    String wordInfoLine = wordInfo.getWord() + " " + wordInfo.getWordCount();
-                    wordsJoiner.add(wordInfoLine);
-                }
+            return wordInfoList.stream()
+                    .map(wordInfo -> getWordInfoLine(wordInfo))
+                    .collect(Collectors.joining()).trim();
+        } catch (Exception e) {
+            return CALCULATE_ERROR_EXCEPTION_MSG;
+        }
+    }
 
-                return wordsJoiner.toString();
-            } catch (Exception e) {
-                return CALCULATE_ERROR_EXCEPTION_MSG;
-            }
+    private String getWordInfoLine(WordInfo wordInfo) {
+        return wordInfo.getWord() + " " + wordInfo.getWordCount() + "\n";
     }
 
     private void sortWordInfoList(List<WordInfo> wordInfoList) {
