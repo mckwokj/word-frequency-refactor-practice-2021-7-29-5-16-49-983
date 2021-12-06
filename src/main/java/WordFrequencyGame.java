@@ -6,12 +6,6 @@ public class WordFrequencyGame {
     private static final String SPACE_PATTERN = "\\s+";
 
     public String getResult(String inputStr) {
-
-
-        if (inputStr.split(SPACE_PATTERN).length == 1) {
-            return inputStr + " 1";
-        } else {
-
             try {
 
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
@@ -28,7 +22,6 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
-    }
 
     private List<WordInfo> calculateWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(SPACE_PATTERN));
