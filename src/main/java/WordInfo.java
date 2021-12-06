@@ -15,6 +15,4 @@ public class WordInfo {
     public int getWordCount() {
         return this.count;
     }
-
-
 }

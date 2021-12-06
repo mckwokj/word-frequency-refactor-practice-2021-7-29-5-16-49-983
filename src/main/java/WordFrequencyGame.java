@@ -16,11 +16,12 @@ public class WordFrequencyGame {
                     String wordInfoLine = wordInfo.getWord() + " " + wordInfo.getWordCount();
                     wordsJoiner.add(wordInfoLine);
                 }
+
                 return wordsJoiner.toString();
             } catch (Exception e) {
                 return CALCULATE_ERROR_EXCEPTION_MSG;
             }
-        }
+    }
 
     private void sortWordInfoList(List<WordInfo> wordInfoList) {
         wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
