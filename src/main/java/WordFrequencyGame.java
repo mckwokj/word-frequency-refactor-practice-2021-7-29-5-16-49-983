@@ -4,21 +4,21 @@ import java.util.stream.Collectors;
 public class WordFrequencyGame {
 
     private static final String SPACE_PATTERN = "\\s+";
+    public static final String CALCULATE_ERROR_EXCEPTION_MSG = "Calculate Error";
 
     public String getResult(String inputStr) {
             try {
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
-
                 sortWordInfoList(wordInfoList);
-
                 StringJoiner wordsJoiner = new StringJoiner("\n");
+
                 for (WordInfo wordInfo : wordInfoList) {
                     String wordInfoLine = wordInfo.getWord() + " " + wordInfo.getWordCount();
                     wordsJoiner.add(wordInfoLine);
                 }
                 return wordsJoiner.toString();
             } catch (Exception e) {
-                return "Calculate Error";
+                return CALCULATE_ERROR_EXCEPTION_MSG;
             }
         }
 
