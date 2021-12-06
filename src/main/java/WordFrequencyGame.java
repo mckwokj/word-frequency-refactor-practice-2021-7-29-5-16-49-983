@@ -40,14 +40,13 @@ public class WordFrequencyGame {
                 inputList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
 
                 StringJoiner joiner = new StringJoiner("\n");
-                for (WordInfo w : inputList) {
-                    String s = w.getValue() + " " + w.getWordCount();
+                
+                for (WordInfo wordInfo : inputList) {
+                    String s = wordInfo.getValue() + " " + wordInfo.getWordCount();
                     joiner.add(s);
                 }
                 return joiner.toString();
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
