@@ -6,12 +6,12 @@ public class WordFrequencyGame {
     private static final String SPACE_PATTERN = "\\s+";
     public static final String CALCULATE_ERROR_EXCEPTION_MSG = "Calculate Error";
 
+
     public String getWordFrequencyResult(String sentence) {
         try {
             List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
-            sortWordInfoList(wordInfoList);
-
             return wordInfoList.stream()
+                    .sorted((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount())
                     .map(wordInfo -> getWordInfoLine(wordInfo))
                     .collect(Collectors.joining()).trim();
         } catch (Exception e) {
