@@ -7,10 +7,9 @@ public class WordFrequencyGame {
 
     public String getResult(String inputStr) {
             try {
-
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
 
-                wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+                sortWordInfoList(wordInfoList);
 
                 StringJoiner wordsJoiner = new StringJoiner("\n");
                 for (WordInfo wordInfo : wordInfoList) {
@@ -22,6 +21,10 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+
+    private void sortWordInfoList(List<WordInfo> wordInfoList) {
+        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+    }
 
     private List<WordInfo> calculateWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(SPACE_PATTERN));
