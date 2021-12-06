@@ -8,7 +8,7 @@ public class WordInfo {
     }
 
 
-    public String getValue() {
+    public String getWord() {
         return this.word;
     }
 
