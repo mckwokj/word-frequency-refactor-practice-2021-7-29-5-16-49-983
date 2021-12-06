@@ -6,9 +6,9 @@ public class WordFrequencyGame {
     private static final String SPACE_PATTERN = "\\s+";
     public static final String CALCULATE_ERROR_EXCEPTION_MSG = "Calculate Error";
 
-    public String getResult(String inputStr) {
+    public String getResult(String sentence) {
             try {
-                List<WordInfo> wordInfoList = calculateWordFrequency(inputStr);
+                List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
                 sortWordInfoList(wordInfoList);
                 StringJoiner wordsJoiner = new StringJoiner("\n");
 
