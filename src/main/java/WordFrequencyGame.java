@@ -6,23 +6,23 @@ import java.util.StringJoiner;
 
 public class WordFrequencyGame {
 
-    private static final String SPACE_REGEX = "\\s+";
+    private static final String SPACE_PATTERN = "\\s+";
 
     public String getResult(String inputStr) {
 
 
-        if (inputStr.split(SPACE_REGEX).length == 1) {
+        if (inputStr.split(SPACE_PATTERN).length == 1) {
             return inputStr + " 1";
         } else {
 
             try {
 
                 //split the input string with 1 to n pieces of spaces
-                String[] words = inputStr.split(SPACE_REGEX);
+                String[] words = inputStr.split(SPACE_PATTERN);
 
                 List<WordInfo> inputList = new ArrayList<>();
-                for (String s : words) {
-                    WordInfo wordInfo = new WordInfo(s, 1);
+                for (String word : words) {
+                    WordInfo wordInfo = new WordInfo(word, 1);
                     inputList.add(wordInfo);
                 }
 
