@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class WordFrequencyGameTest {
-
     @Test
     public void should_get_the_1_when_input_the() throws Exception {
         //Given
@@ -51,6 +50,11 @@ public class WordFrequencyGameTest {
         String sentence = "the is is";
         String expectResult = "is 2\nthe 1";
         validate_Input_words_process_to_expected_word(sentence, expectResult);
+    }
+
+    @Test
+    public void should_return_calculate_error_when_get_word_frequency_result_given_sentence_is_null () {
+        validate_Input_words_process_to_expected_word(null, WordFrequencyGame.CALCULATE_ERROR_EXCEPTION_MSG);
     }
 
     private void validate_Input_words_process_to_expected_word(String sentence, String expectResult) {
