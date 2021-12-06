@@ -22,11 +22,7 @@ public class WordFrequencyGame {
     private String getWordInfoLine(WordInfo wordInfo) {
         return wordInfo.getWord() + " " + wordInfo.getWordCount() + "\n";
     }
-
-    private void sortWordInfoList(List<WordInfo> wordInfoList) {
-        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
-    }
-
+    
     private List<WordInfo> calculateWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(SPACE_PATTERN));
         List<String> distinctWords = words.stream().distinct().collect(Collectors.toList());
