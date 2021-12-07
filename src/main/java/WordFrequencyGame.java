@@ -9,8 +9,8 @@ public class WordFrequencyGame {
 
     public String getWordFrequencyResult(String sentence) {
         try {
-            List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
-            return wordInfoList.stream()
+            List<WordInfo> wordInfos = calculateWordFrequency(sentence);
+            return wordInfos.stream()
                     .sorted(Comparator.comparingInt(WordInfo::getWordCount).reversed())
                     .map(wordInfo -> getWordInfoLine(wordInfo))
                     .collect(Collectors.joining()).trim();
